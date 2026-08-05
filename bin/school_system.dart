@@ -2,6 +2,8 @@ import "dart:io";
 import "models/person.dart";
 
 void main(){
+  Set<Person> person = {};
+
   while(true){
     print("""School Managing Application: 
     1. Get the students list
