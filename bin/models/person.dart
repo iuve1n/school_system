@@ -1,9 +1,17 @@
 class Person {
   String name;
   String surName;
-  int birthY;
-  int birthM;
   int birthD;
+  int birthM;
+  int birthY;
 
-  Person(this.name,this.surName, this.birthY, this.birthM, this.birthD);
+  Person(this.name,this.surName, this.birthD, this.birthM, this.birthY);
+
+  Person.eren() :
+    name = "Eren",
+    surName = "Yeager",
+    birthD = 30,
+    birthM = 3,
+    birthY = 835;
+  
 }

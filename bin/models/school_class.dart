@@ -1,6 +1,7 @@
 import 'student.dart';
 
 class SchoolClass {
-  late List<Student> studentsList;
+  List<Student> studentsList;
 
+  SchoolClass(): studentsList = [Student.binomStudent(), Student.binomStudent(), Student.binomStudent()];
 }

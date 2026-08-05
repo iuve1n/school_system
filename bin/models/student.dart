@@ -7,15 +7,23 @@ class Student extends Person {
   late double gpa;
 
   Student(
-    String name,
-    String surName,
-    int birthD,
-    int birthM,
-    int birthY,
+    super.name,
+    super.surName,
+    super.birthD,
+    super.birthM,
+    super.birthY,
     this.school,
     this.schoolClassGradeLiteral,
     this.gradeList,
-  ) : super(name, surName, birthD, birthM, birthY) {
+  ) {
+    gpa = getGpa();
+  }
+
+  Student.binomStudent()
+    : school = "Binom",
+      schoolClassGradeLiteral = "1A",
+      gradeList = [4.0, 4.0, 4.0],
+      super.eren() {
     gpa = getGpa();
   }
 

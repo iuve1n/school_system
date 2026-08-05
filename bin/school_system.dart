@@ -1,8 +1,10 @@
 import "dart:io";
-import "models/person.dart";
+import "models/models.dart";
 
 void main(){
-  Set<Person> person = {};
+  SchoolClass synypA = SchoolClass();
+  print(synypA.studentsList);
+  print(synypA.studentsList[0].name);
 
   while(true){
     print("""School Managing Application: 
@@ -10,5 +12,8 @@ void main(){
     2. Check the existence of Student
     3. Add the student to Class
     0. Exit""");
+
+    String? answer = stdin.readLineSync();
   }
+  
 }
