@@ -9,9 +9,7 @@ class Student extends Person {
   Student(
     super.name,
     super.surName,
-    super.birthD,
-    super.birthM,
-    super.birthY,
+    super.formattedBirthday,
     this.school,
     this.schoolClassGradeLiteral,
     this.gradeList,
