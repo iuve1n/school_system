@@ -1,12 +1,11 @@
 import "dart:io";
 import "models/models.dart";
+import 'services/school_service.dart';
 
-void main(){
-  SchoolClass synypA = SchoolClass();
-  print(synypA.studentsList);
-  print(synypA.studentsList[0].name);
+void main() {
+  Person olzhas = inputPerson();
 
-  while(true){
+  while (true) {
     print("""School Managing Application: 
     1. Get the students list
     2. Check the existence of Student
@@ -15,5 +14,4 @@ void main(){
 
     String? answer = stdin.readLineSync();
   }
-  
 }

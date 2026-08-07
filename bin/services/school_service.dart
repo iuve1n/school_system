@@ -1,16 +1,43 @@
 import 'dart:io';
 import '../models/models.dart';
 
-Person inputPerson(){
+Person inputPerson() {
   stdout.write("Input the name: ");
   final name = stdin.readLineSync() ?? "Empty input";
-  
+
+  stdout.write("Input the Surname: ");
+  final surName = stdin.readLineSync() ?? "Empty input";
+
+  stdout.write("Input the Birthday(dd.mm.yyyy): ");
+  final formattedBirthday = stdin.readLineSync() ?? "0.0.0";
+
+  return Person(name, surName, formattedBirthday);
+}
+
+Student inputStudent() {
+  stdout.write("Input the name: ");
+  final name = stdin.readLineSync() ?? "Empty input";
+
   stdout.write("Input the Surname: ");
   final surName = stdin.readLineSync() ?? "Empty input";
 
   stdout.write("Input the Birthday(dd.mm.yyyy): ");
   final formattedBirthday = stdin.readLineSync() ?? "Empty input";
 
-  return Person(name, surName, formattedBirthday);
-  //I will continue the work with parsing the birthD, birthM and birthY later
+  stdout.write("Input the school name: ");
+  final school = stdin.readLineSync() ?? "Empty input";
+
+  stdout.write("Input the Grade dot Literal(11.d): ");
+  final scgl = stdin.readLineSync() ?? "Empty input";
+
+  stdout.write("Input the amount of graded subjects: ");
+  final gradedSubjects = int.tryParse(stdin.readLineSync() ?? "0") ?? 0;
+
+  List<double> gradeList = [];
+  for (int i = 0; i < gradedSubjects; i++) {
+    print("IF THE INPUT WILL BE INVALID IT WILL BE COUNTED AS 0");
+    stdout.write("${i + 1} Write the grade: ");
+    gradeList.add(double.tryParse(stdin.readLineSync() ?? "0.0") ?? 0.0);
+  }
+  return Student(name, surName, formattedBirthday, school, scgl, gradeList);
 }

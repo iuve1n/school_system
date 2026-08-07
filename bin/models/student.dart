@@ -26,6 +26,7 @@ class Student extends Person {
   }
 
   double getGpa() {
+    if (gradeList.isEmpty) return 0;
     double sum = 0;
     for (double grade in gradeList) {
       sum += grade;
