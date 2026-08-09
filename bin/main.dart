@@ -3,7 +3,7 @@ import "models/models.dart";
 import 'services/school_service.dart';
 
 void main() {
-  Person olzhas = inputPerson();
+  SchoolClass.elevend();
 
   while (true) {
     print("""School Managing Application: 
@@ -12,6 +12,12 @@ void main() {
     3. Add the student to Class
     0. Exit""");
 
-    String? answer = stdin.readLineSync();
+    int answer = int.tryParse(stdin.readLineSync() ?? "0") ?? 0;
+
+    switch (answer) {
+      case 1:
+        SchoolClass sClass = requestSchoolClass();
+        printStudentlist(sClass);
+    }
   }
 }

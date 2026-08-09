@@ -36,4 +36,11 @@ class Person {
   }
 
   bool leapYear() => birthY % 4 == 0 && birthY % 100 != 0 || birthY % 400 == 0;
+
+  @override
+  String toString() {
+    return 'Person{name: $name, surName: $surName, formattedBirthday: $formattedBirthday, birthD: $birthD, birthM: $birthM, birthY: $birthY}';
+  }
+
+
 }

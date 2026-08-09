@@ -33,4 +33,11 @@ class Student extends Person {
     }
     return sum / gradeList.length;
   }
+
+  @override
+  String toString() {
+    return 'Student{school: $school, schoolClassGradeLiteral: $schoolClassGradeLiteral, gradeList: $gradeList, gpa: $gpa}';
+  }
+
+
 }

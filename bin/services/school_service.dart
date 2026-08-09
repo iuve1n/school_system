@@ -41,3 +41,21 @@ Student inputStudent() {
   }
   return Student(name, surName, formattedBirthday, school, scgl, gradeList);
 }
+
+SchoolClass requestSchoolClass() {
+  late String gradeDLiteral;
+  do {
+    stdout.write("Write the requested class(example 11.d): ");
+    gradeDLiteral = stdin.readLineSync() ?? "";
+  } while (gradeDLiteral.isEmpty);
+  if (!(SchoolClass.database.containsKey(gradeDLiteral))) {
+    throw Exception("That class doesn't exist");
+  }
+  return SchoolClass.database[gradeDLiteral]!;
+}
+
+void printStudentlist(SchoolClass schoolClass) {
+  for (Student student in schoolClass.studentsList) {
+    print(student);
+  }
+}
