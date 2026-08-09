@@ -41,6 +41,4 @@ class Person {
   String toString() {
     return 'Person{name: $name, surName: $surName, formattedBirthday: $formattedBirthday, birthD: $birthD, birthM: $birthM, birthY: $birthY}';
   }
-
-
 }
