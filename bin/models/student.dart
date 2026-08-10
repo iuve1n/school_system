@@ -1,6 +1,7 @@
 import 'person.dart';
 
 class Student extends Person {
+  static Map<String, Student> database = {};
   late String school;
   late String schoolClassGradeLiteral;
   List<double> gradeList = [];
@@ -15,6 +16,7 @@ class Student extends Person {
     this.schoolClassGradeLiteral,
     this.gradeList,
   ) {
+    database[id] = this;
     gpa = getGpa();
   }
 

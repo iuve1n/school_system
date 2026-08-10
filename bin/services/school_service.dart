@@ -71,3 +71,16 @@ void printStudentlist(SchoolClass schoolClass) {
     print(student);
   }
 }
+
+Student requestStudent() {
+  late String id;
+  do {
+    stdout.write("Input the id of the student: ");
+    id = stdin.readLineSync() ?? "";
+  } while (id.isEmpty);
+  if (!Student.database.containsKey(id)) {
+    throw Exception("There is no student with the id: $id.");
+  }
+  return Student.database[id]!;
+
+}

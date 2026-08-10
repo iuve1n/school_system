@@ -12,7 +12,9 @@ class Person {
     birthD = int.parse(formattedBirthday.split('.')[0]);
     birthM = int.parse(formattedBirthday.split('.')[1]);
     birthY = int.parse(formattedBirthday.split('.')[2]);
-    if (!isValidBirthday()) throw Exception();
+    if (!isValidBirthday()) {
+      throw Exception("Birthday is not valid");
+    }
     if (database.containsKey(id)) {
       throw Exception("Person with that id already exist.");
     }

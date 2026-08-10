@@ -9,8 +9,8 @@ void main() {
   print(olzhas);
   while (true) {
     print("""School Managing Application: 
-    1. Get the students list
-    2. Check the existence of Student
+    1. Get the students list.
+    2. Get the information about student.
     3. Add the student to Class
     0. Exit""");
 
@@ -20,6 +20,9 @@ void main() {
       case 1:
         SchoolClass sClass = requestSchoolClass();
         printStudentlist(sClass);
+      case 2:
+        Student student = requestStudent();
+        print(student);
     }
   }
 }
