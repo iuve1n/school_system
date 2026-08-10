@@ -7,6 +7,7 @@ void main() {
   Student.binomStudent();
 
   late String answer;
+  mainloop:
   while (true) {
     do {
       print("""School Managing Application: 
@@ -32,9 +33,12 @@ void main() {
       case "3":
         addStudentToClass();
       case "0":
-        break;
+        print("Exit...");
+        break mainloop;
       default:
         print("INPUT doesnt suits to any of the given option");
     }
+
+    print("\n \n \n ");
   }
 }
