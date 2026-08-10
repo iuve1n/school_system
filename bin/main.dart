@@ -4,25 +4,37 @@ import 'services/school_service.dart';
 
 void main() {
   SchoolClass.elevend();
+  Student.binomStudent();
 
-  Student olzhas = inputStudent();
-  print(olzhas);
+  late String answer;
   while (true) {
-    print("""School Managing Application: 
+    do {
+      print("""School Managing Application: 
     1. Get the students list.
     2. Get the information about student.
     3. Add the student to Class
     0. Exit""");
-
-    int answer = int.tryParse(stdin.readLineSync() ?? "0") ?? 0;
+      stdout.write("INPUT: ");
+      answer = stdin.readLineSync() ?? "";
+      if (answer.isEmpty) {
+        print("Input can't be empty");
+      }
+    } while (answer.isEmpty);
 
     switch (answer) {
-      case 1:
-        SchoolClass sClass = requestSchoolClass();
+      case "1":
+        final sClass = requestSchoolClass();
         printStudentlist(sClass);
-      case 2:
-        Student student = requestStudent();
+        break;
+      case "2":
+        final student = requestStudent();
         print(student);
+      case "3":
+        addStudentToClass();
+      case "0":
+        break;
+      default:
+        print("INPUT doesnt suits to any of the given option");
     }
   }
 }

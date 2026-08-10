@@ -3,7 +3,7 @@ import 'person.dart';
 class Student extends Person {
   static Map<String, Student> database = {};
   late String school;
-  late String schoolClassGradeLiteral;
+  late String gradeDLiteral;
   List<double> gradeList = [];
   late double gpa;
 
@@ -13,7 +13,7 @@ class Student extends Person {
     super.formattedBirthday,
     super.id,
     this.school,
-    this.schoolClassGradeLiteral,
+    this.gradeDLiteral,
     this.gradeList,
   ) {
     database[id] = this;
@@ -22,9 +22,10 @@ class Student extends Person {
 
   Student.binomStudent()
     : school = "Binom",
-      schoolClassGradeLiteral = "1A",
+      gradeDLiteral = "11.d",
       gradeList = [4.0, 4.0, 4.0],
       super.eren() {
+    database[id] = this;
     gpa = getGpa();
   }
 
@@ -39,6 +40,6 @@ class Student extends Person {
 
   @override
   String toString() {
-    return 'Student{school: $school, schoolClassGradeLiteral: $schoolClassGradeLiteral, gradeList: $gradeList, gpa: $gpa}';
+    return 'Student{school: $school, gradeDLiteral: $gradeDLiteral, gradeList: $gradeList, gpa: $gpa}';
   }
 }
