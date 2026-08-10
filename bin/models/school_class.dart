@@ -8,7 +8,9 @@ class SchoolClass {
     if (!isValidGDL()) {
       throw Exception("wrong format it should be (grade.literal)");
     }
-    if (database.containsKey(gradeDLiteral)) throw Exception("already exis ");
+    if (database.containsKey(gradeDLiteral)) {
+      throw Exception("Class with that literal already exis");
+    }
     database[gradeDLiteral] = this;
   }
 
@@ -33,6 +35,4 @@ class SchoolClass {
   String toString() {
     return 'SchoolClass{gradeDLiteral: $gradeDLiteral, studentsList: $studentsList}';
   }
-
-
 }

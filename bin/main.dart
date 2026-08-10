@@ -5,6 +5,8 @@ import 'services/school_service.dart';
 void main() {
   SchoolClass.elevend();
 
+  Student olzhas = inputStudent();
+  print(olzhas);
   while (true) {
     print("""School Managing Application: 
     1. Get the students list

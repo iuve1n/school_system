@@ -1,25 +1,34 @@
 class Person {
+  static Map<String, Person> database = {};
   String name;
   String surName;
   String formattedBirthday;
+  String id;
   late int birthD;
   late int birthM;
   late int birthY;
 
-  Person(this.name, this.surName, this.formattedBirthday) {
+  Person(this.name, this.surName, this.formattedBirthday, this.id) {
     birthD = int.parse(formattedBirthday.split('.')[0]);
     birthM = int.parse(formattedBirthday.split('.')[1]);
     birthY = int.parse(formattedBirthday.split('.')[2]);
     if (!isValidBirthday()) throw Exception();
+    if (database.containsKey(id)) {
+      throw Exception("Person with that id already exist.");
+    }
+    database[id] = this;
   }
 
   Person.eren()
     : name = "Eren",
       surName = "Yeager",
       formattedBirthday = "30.03.835",
+      id = "350330090909",
       birthD = 30,
       birthM = 3,
-      birthY = 835;
+      birthY = 835 {
+    database[id] = this;
+  }
 
   bool isValidBirthday() {
     if ([1, 3, 5, 7, 8, 10, 12].contains(birthM)) {
@@ -39,6 +48,6 @@ class Person {
 
   @override
   String toString() {
-    return 'Person{name: $name, surName: $surName, formattedBirthday: $formattedBirthday, birthD: $birthD, birthM: $birthM, birthY: $birthY}';
+    return 'Person{name: $name, surName: $surName, formattedBirthday: $formattedBirthday, birthD: $birthD, birthM: $birthM, birthY: $birthY, id: $id}';
   }
 }

@@ -11,7 +11,13 @@ Person inputPerson() {
   stdout.write("Input the Birthday(dd.mm.yyyy): ");
   final formattedBirthday = stdin.readLineSync() ?? "0.0.0";
 
-  return Person(name, surName, formattedBirthday);
+  late String id;
+  do {
+    stdout.write("Input the id(yymmdd******): ");
+    id = stdin.readLineSync() ?? "";
+  } while (id.isEmpty);
+
+  return Person(name, surName, formattedBirthday, id);
 }
 
 Student inputStudent() {
@@ -23,6 +29,12 @@ Student inputStudent() {
 
   stdout.write("Input the Birthday(dd.mm.yyyy): ");
   final formattedBirthday = stdin.readLineSync() ?? "Empty input";
+
+  late String id;
+  do {
+    stdout.write("Input the id(yymmdd******): ");
+    id = stdin.readLineSync() ?? "";
+  } while (id.isEmpty);
 
   stdout.write("Input the school name: ");
   final school = stdin.readLineSync() ?? "Empty input";
@@ -39,7 +51,7 @@ Student inputStudent() {
     stdout.write("${i + 1} Write the grade: ");
     gradeList.add(double.tryParse(stdin.readLineSync() ?? "0.0") ?? 0.0);
   }
-  return Student(name, surName, formattedBirthday, school, scgl, gradeList);
+  return Student(name, surName, formattedBirthday, id, school, scgl, gradeList);
 }
 
 SchoolClass requestSchoolClass() {

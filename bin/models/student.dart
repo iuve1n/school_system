@@ -10,6 +10,7 @@ class Student extends Person {
     super.name,
     super.surName,
     super.formattedBirthday,
+    super.id,
     this.school,
     this.schoolClassGradeLiteral,
     this.gradeList,
@@ -38,6 +39,4 @@ class Student extends Person {
   String toString() {
     return 'Student{school: $school, schoolClassGradeLiteral: $schoolClassGradeLiteral, gradeList: $gradeList, gpa: $gpa}';
   }
-
-
 }
