@@ -163,4 +163,16 @@ void addStudentToClass() {
   print("Student: ${student.name} succesfully added to the Class");
 }
 //I just read about the work of object copy in dart, so changing the List by accessing it with key doesn't make sense.
-//Because it's more cleaner, to change it just by copying the object and changing its list. 
+//Because it's more cleaner, to change it just by copying the object and changing its list.
+
+bool askForYON(String message) {
+  late String choice;
+  do {
+    stdout.write(message);
+    choice = stdin.readLineSync() ?? "";
+    if (choice.isEmpty || !["y", "n"].contains(choice)) {
+      print("Choice should be exact");
+    }
+  } while (choice.isEmpty || !["y", "n"].contains(choice));
+  return choice == "y" ? true : false;
+}

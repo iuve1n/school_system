@@ -14,6 +14,7 @@ void main() {
     1. Get the students list.
     2. Get the information about student.
     3. Add the student to Class
+    4. Create a new Student
     0. Exit""");
       stdout.write("INPUT: ");
       answer = stdin.readLineSync() ?? "";
@@ -40,5 +41,6 @@ void main() {
     }
 
     print("\n \n \n ");
+    
   }
 }
