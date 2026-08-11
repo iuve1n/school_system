@@ -33,6 +33,8 @@ void main() {
         print(student);
       case "3":
         addStudentToClass();
+      case "4":
+        createStudent();
       case "0":
         print("Exit...");
         break mainloop;
@@ -41,6 +43,5 @@ void main() {
     }
 
     print("\n \n \n ");
-    
   }
 }

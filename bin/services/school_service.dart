@@ -106,7 +106,8 @@ void createStudent() {
     gradeList.add(double.tryParse(stdin.readLineSync() ?? "0.0") ?? 0.0);
   }
 
-  Student(name, surName, formattedBirthday, id, school, scgl, gradeList);
+  Student student = Student(name, surName, formattedBirthday, id, school, scgl, gradeList);
+  addStudentToClass(student);
   print("The Student with id: $id succesfully created");
 }
 
@@ -156,8 +157,8 @@ Student requestStudent() {
   return Student.database[id]!;
 }
 
-void addStudentToClass() {
-  Student student = requestStudent();
+void addStudentToClass([Student? student]) {
+  student ??= requestStudent();   // ??=    is equal to   if(student == null)
   SchoolClass schoolclass = requestSchoolClass();
   schoolclass.studentsList.add(student);
   print("Student: ${student.name} succesfully added to the Class");
