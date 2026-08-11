@@ -158,7 +158,9 @@ Student requestStudent() {
 
 void addStudentToClass() {
   Student student = requestStudent();
-  String key = requestSchoolClassKey();
-  SchoolClass.database[key]!.studentsList.add(student);
+  SchoolClass schoolclass = requestSchoolClass();
+  schoolclass.studentsList.add(student);
   print("Student: ${student.name} succesfully added to the Class");
 }
+//I just read about the work of object copy in dart, so changing the List by accessing it with key doesn't make sense.
+//Because it's more cleaner, to change it just by copying the object and changing its list. 
