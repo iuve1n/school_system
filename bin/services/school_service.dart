@@ -169,7 +169,7 @@ void addStudentToClass([Student? student]) {
 bool askForYON(String message) {
   late String choice;
   do {
-    stdout.write(message);
+    stdout.write("$message(y/n) : ");
     choice = stdin.readLineSync() ?? "";
     if (choice.isEmpty || !["y", "n"].contains(choice)) {
       print("Choice should be exact");

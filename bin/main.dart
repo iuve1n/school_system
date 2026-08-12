@@ -2,6 +2,17 @@ import "dart:io";
 import "models/models.dart";
 import 'services/school_service.dart';
 
+enum C {
+  one("getting students list"),
+  two("getting information about student"),
+  three("adding the student to class"),
+  four("creating student"),
+  zero("EXIT -- data will be erased!");
+
+  const C(this.text);
+  final String text;
+}
+
 void main() {
   SchoolClass.elevend();
   Student.binomStudent();
@@ -25,17 +36,32 @@ void main() {
 
     switch (answer) {
       case "1":
+        if (!askForYON("Do you want to continue ${C.one.text}")) {
+          continue;
+        }
         final sClass = requestSchoolClass();
         printStudentlist(sClass);
         break;
       case "2":
+        if (!askForYON("Do you want to continue ${C.two.text}")) {
+          continue;
+        }
         final student = requestStudent();
         print(student);
       case "3":
+        if (!askForYON("Do you want to continue ${C.three.text}")) {
+          continue;
+        }
         addStudentToClass();
       case "4":
+        if (!askForYON("Do you want to continue ${C.four.text}")) {
+          continue;
+        }
         createStudent();
       case "0":
+        if (!askForYON("Do you want to continue ${C.zero.text}")) {
+          continue;
+        }
         print("Exit...");
         break mainloop;
       default:
