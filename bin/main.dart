@@ -26,6 +26,7 @@ void main() {
     2. Get the information about student.
     3. Add the student to Class
     4. Create a new Student
+    5. New Academic Year
     0. Exit""");
       stdout.write("INPUT: ");
       answer = stdin.readLineSync() ?? "";
@@ -58,6 +59,8 @@ void main() {
           continue;
         }
         createStudent();
+      case "5":
+        print("Currently not available(");
       case "0":
         if (!askForYON("Do you want to continue ${C.zero.text}")) {
           continue;
