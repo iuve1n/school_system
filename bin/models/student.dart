@@ -40,6 +40,6 @@ class Student extends Person {
 
   @override
   String toString() {
-    return 'Student{school: $school, gradeDLiteral: $gradeDLiteral, gradeList: $gradeList, gpa: $gpa}';
+    return '${super.toString()}, school: $school, gradeDLiteral: $gradeDLiteral, gradeList: $gradeList, gpa: $gpa';
   }
 }
