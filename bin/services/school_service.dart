@@ -106,7 +106,15 @@ void createStudent() {
     gradeList.add(double.tryParse(stdin.readLineSync() ?? "0.0") ?? 0.0);
   }
 
-  Student student = Student(name, surName, formattedBirthday, id, school, scgl, gradeList);
+  Student student = Student(
+    name,
+    surName,
+    formattedBirthday,
+    id,
+    school,
+    scgl,
+    gradeList,
+  );
   addStudentToClass(student);
   print("The Student with id: $id succesfully created");
 }
@@ -158,8 +166,9 @@ Student requestStudent() {
 }
 
 void addStudentToClass([Student? student]) {
-  student ??= requestStudent();   // ??=    is equal to   if(student == null)
+  student ??= requestStudent(); // ??=    is equal to   if(student == null)
   SchoolClass schoolclass = requestSchoolClass();
+  student.gradeDLiteral = schoolclass.gradeDLiteral;
   schoolclass.studentsList.add(student);
   print("Student: ${student.name} succesfully added to the Class");
 }
@@ -177,3 +186,5 @@ bool askForYON(String message) {
   } while (choice.isEmpty || !["y", "n"].contains(choice));
   return choice == "y" ? true : false;
 }
+
+void newAcademicYear() {}

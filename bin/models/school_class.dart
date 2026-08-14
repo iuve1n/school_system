@@ -11,6 +11,9 @@ class SchoolClass {
     if (database.containsKey(gradeDLiteral)) {
       throw Exception("Class with that literal already exis");
     }
+    for (Student student in studentsList) {
+      student.gradeDLiteral = gradeDLiteral;
+    }
     database[gradeDLiteral] = this;
   }
 
