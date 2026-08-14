@@ -27,11 +27,31 @@ class SchoolClass {
     database[gradeDLiteral] = this;
   }
 
+  void newAcademicYear() {
+    database.remove(gradeDLiteral);
+    List<String> list = gradeDLiteral.split(".");
+    int grade = int.parse(list[0]);
+    gradeDLiteral = "${++grade}.${list[1]}";
+    for (Student student in studentsList) {
+      student.gradeDLiteral = gradeDLiteral;
+    }
+    database[gradeDLiteral] = this;
+  }
+
   bool isValidGDL() {
-    int grade = int.parse(gradeDLiteral.split('.')[0]);
+    List<String> list = gradeDLiteral.split(".");
+    int grade = int.parse(list[0]);
     int literalCode = (gradeDLiteral.split('.')[1].codeUnitAt(0));
     return (grade < 13 && grade > 0) &&
         (literalCode >= "a".codeUnitAt(0) && literalCode <= "z".codeUnitAt(0));
+  }
+
+  static bool checkExistence(String key) {
+    if (!(SchoolClass.database.containsKey(key))) {
+      print("Class with the given gradeDotLiteral doesn't exist!");
+      return false;
+    }
+    return true;
   }
 
   @override

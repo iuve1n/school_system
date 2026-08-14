@@ -136,10 +136,7 @@ SchoolClass requestSchoolClass() {
   do {
     stdout.write("Write the requested class(example 11.d): ");
     gradeDLiteral = stdin.readLineSync() ?? "";
-  } while (gradeDLiteral.isEmpty);
-  if (!(SchoolClass.database.containsKey(gradeDLiteral))) {
-    throw Exception("That class doesn't exist");
-  }
+  } while (gradeDLiteral.isEmpty || !SchoolClass.checkExistence(gradeDLiteral));
   return SchoolClass.database[gradeDLiteral]!;
 }
 
@@ -187,4 +184,10 @@ bool askForYON(String message) {
   return choice == "y" ? true : false;
 }
 
-void newAcademicYear() {}
+void newAcademicYear() {
+  final scholClassList = SchoolClass.database.values.toList();
+  for (SchoolClass schoolClass in scholClassList) {
+    schoolClass.newAcademicYear();
+  }
+  print("New Academic Year has been set succesfully");
+}

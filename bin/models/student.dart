@@ -5,7 +5,6 @@ class Student extends Person {
   late String school;
   late String gradeDLiteral;
   List<double> gradeList = [];
-  late double gpa;
 
   Student(
     super.name,
@@ -17,7 +16,6 @@ class Student extends Person {
     this.gradeList,
   ) {
     database[id] = this;
-    gpa = getGpa();
   }
 
   Student.binomStudent()
@@ -26,11 +24,10 @@ class Student extends Person {
       gradeList = [4.0, 4.0, 4.0],
       super.eren() {
     database[id] = this;
-    gpa = getGpa();
   }
 
-  double getGpa() {
-    if (gradeList.isEmpty) return 0;
+  double get gpa{
+    if (gradeList.isEmpty) return 0.0;
     double sum = 0;
     for (double grade in gradeList) {
       sum += grade;
