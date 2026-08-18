@@ -119,15 +119,29 @@ void createStudent() {
   print("The Student with id: $id succesfully created");
 }
 
+void createSchoolClass() {
+  late String gradeDLiteral;
+  do {
+    stdout.write("Write the class gradeDotLiteral(example 11.d): ");
+    gradeDLiteral = stdin.readLineSync() ?? "";
+  } while (gradeDLiteral.isEmpty || SchoolClass.checkExistence(gradeDLiteral));
+  List<Student> studentList = [];
+  if (askForYON("Do you want to add the students to Class?")) {
+    stdout.write("How much students are in the class ");
+    int count = int.tryParse(stdin.readLineSync() ?? "0") ?? 0;
+    for (int i = 0; i < count; i++) {
+      studentList.add(inputStudent());
+    }
+  }
+  SchoolClass(studentList, gradeDLiteral);
+}
+
 String requestSchoolClassKey() {
   late String gradeDLiteral;
   do {
     stdout.write("Write the requested class(example 11.d): ");
     gradeDLiteral = stdin.readLineSync() ?? "";
-  } while (gradeDLiteral.isEmpty);
-  if (!(SchoolClass.database.containsKey(gradeDLiteral))) {
-    throw Exception("That class doesn't exist");
-  }
+  } while (gradeDLiteral.isEmpty || SchoolClass.checkExistence(gradeDLiteral));
   return gradeDLiteral;
 }
 

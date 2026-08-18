@@ -7,7 +7,8 @@ enum C {
   two("getting information about student"),
   three("adding the student to class"),
   four("creating student"),
-  five("declaring new academic year"),
+  five("creating new class"),
+  six("declaring new academic year"),
   zero("EXIT -- data will be erased!");
 
   const C(this.text);
@@ -27,7 +28,8 @@ void main() {
     2. Get the information about student.
     3. Add the student to Class
     4. Create a new Student
-    5. New Academic Year(+1 for all grades)
+    5. Create a new Class
+    6. New Academic Year(+1 for all grades)
     0. Exit""");
       stdout.write("INPUT: ");
       answer = stdin.readLineSync() ?? "";
@@ -64,7 +66,12 @@ void main() {
         if (!askForYON("Do you want to continue ${C.five.text}")) {
           continue;
         }
-        newAcademicYear();
+        createSchoolClass();
+      case "6":
+      if (!askForYON("Do you want to continue ${C.five.text}")) {
+        continue;
+      }
+      newAcademicYear();
       case "0":
         if (!askForYON("Do you want to continue ${C.zero.text}")) {
           continue;

@@ -51,6 +51,7 @@ class SchoolClass {
       print("Class with the given gradeDotLiteral doesn't exist!");
       return false;
     }
+    print("Class with the given gradeDotLiteral exist!");
     return true;
   }
 
