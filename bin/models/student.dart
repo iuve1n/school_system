@@ -1,6 +1,5 @@
 import 'person.dart';
 
-
 class Student extends Person {
   static Map<String, Student> database = {};
   late String school;
@@ -43,6 +42,6 @@ class Student extends Person {
 
   @override
   String toString() {
-    return '${super.toString()}, school: $school, gradeDLiteral: $gradeDLiteral, gradeList: $gradeList, gpa: $gpa';
+    return '${super.toString()}, school: $school, gradeDLiteral: $gradeDLiteral, gradeList: $gradeList, gpa: $gpa \n attendance: $attendance';
   }
 }

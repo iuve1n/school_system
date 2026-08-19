@@ -27,11 +27,12 @@ void main() {
       print("""School Managing Application: 
     1. Get the students list.
     2. Get the information about student.
-    3. Add the student to Class
-    4. Create a new Student
-    5. Create a new Class
-    6. New Academic Year(+1 for all grades)
-    0. Exit""");
+    3. Add the student to Class.
+    4. Create a new Student.
+    5. Create a new Class.
+    6. New Academic Year(+1 for all grades).
+    7. Mark attendance of the student.
+    0. Exit.""");
       stdout.write("INPUT: ");
       answer = stdin.readLineSync() ?? "";
       if (answer.isEmpty) {

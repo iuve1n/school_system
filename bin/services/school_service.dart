@@ -136,6 +136,11 @@ void createSchoolClass() {
   SchoolClass(studentList, gradeDLiteral);
 }
 
+String todayAsString() {
+  DateTime today = DateTime.now();
+  return "${today.year}-${today.month}-${today.day}";
+}
+
 bool isValidAttendance(String status) {
   if (!["p", "l", "e", "a"].contains(status)) {
     print("Given status is invalid!");
@@ -150,10 +155,10 @@ void markAttendance() {
   do {
     stdout.write("Input the status(p/a/l/e): ");
     status = stdin.readLineSync() ?? "";
-  } while (isValidAttendance(status));
+  } while (!isValidAttendance(status));
 
   if (askForYON("Do you want to mark the attendance for today?")) {
-    student.markAttendance(DateTime.now().toString(), status);
+    student.markAttendance(todayAsString(), status);
   } else {
     stdout.write("Input the date format(2012-02-27): ");
     String date = stdin.readLineSync() ?? "";
