@@ -9,6 +9,7 @@ enum C {
   four("creating student"),
   five("creating new class"),
   six("declaring new academic year"),
+  seven("adding new attendance record for student"),
   zero("EXIT -- data will be erased!");
 
   const C(this.text);
@@ -68,10 +69,15 @@ void main() {
         }
         createSchoolClass();
       case "6":
-      if (!askForYON("Do you want to continue ${C.five.text}")) {
-        continue;
-      }
-      newAcademicYear();
+        if (!askForYON("Do you want to continue ${C.six.text}")) {
+          continue;
+        }
+        newAcademicYear();
+      case "7":
+        if (!askForYON("Do you want to continue ${C.seven.text}")) {
+            continue;
+        }
+        markAttendance();
       case "0":
         if (!askForYON("Do you want to continue ${C.zero.text}")) {
           continue;
