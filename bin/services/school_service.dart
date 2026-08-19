@@ -136,6 +136,32 @@ void createSchoolClass() {
   SchoolClass(studentList, gradeDLiteral);
 }
 
+bool isValidAttendance(String status){
+    if (!["p", "l", "e", "a" ].contains(status)){
+      print("Given status is invalid!");
+      return false;
+    }
+    return true;
+}
+
+void markAttendance() {
+  Student student = inputStudent();
+  late String status;
+  do {
+    stdout.write("Input the status(p/a/l/e): ");
+    status = stdin.readLineSync() ?? "";
+  } while (isValidAttendance(status));
+
+  if(askForYON("Do you want to mark the attendance for today?")) {
+    student.markAttendance(DateTime.now().toString(), status );
+  } else {
+    stdout.write("Input the date format(2012-02-27): ");
+    String date = stdin.readLineSync() ?? "";
+    student.markAttendance(DateTime.tryParse(date).toString(), status );
+  }
+
+}
+
 String requestSchoolClassKey() {
   late String gradeDLiteral;
   do {

@@ -1,13 +1,12 @@
 import 'person.dart';
 
-enum AttendanceStatus { present, late, absent, excused }
 
 class Student extends Person {
   static Map<String, Student> database = {};
   late String school;
   late String gradeDLiteral;
   List<double> gradeList = [];
-  Map<String, AttendanceStatus> attendance = {};
+  Map<String, String> attendance = {};
 
   Student(
     super.name,
@@ -38,7 +37,7 @@ class Student extends Person {
     return sum / gradeList.length;
   }
 
-  void markAttendance(String date, AttendanceStatus status) {
+  void markAttendance(String date, String status) {
     attendance[date] = status;
   }
 
