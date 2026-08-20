@@ -149,20 +149,39 @@ bool isValidAttendance(String status) {
   return true;
 }
 
-void markAttendance() {
-  Student student = requestStudent();
+void markAttendanceOfStudent([Student? student]) {
+  student ??= requestStudent();
   late String status;
   do {
     stdout.write("Input the status(p/a/l/e): ");
     status = stdin.readLineSync() ?? "";
   } while (!isValidAttendance(status));
 
-  if (askForYON("Do you want to mark the attendance for today?")) {
-    student.markAttendance(todayAsString(), status);
-  } else {
-    stdout.write("Input the date format(2012-02-27): ");
-    String date = stdin.readLineSync() ?? "";
-    student.markAttendance(DateTime.tryParse(date).toString(), status);
+  String date = askForYON("Do you want to mark the attendance for today?")
+      ? todayAsString()
+      : dateAsString();
+
+  student.markAttendance(date, status);
+}
+
+String dateAsString() {
+  stdout.write("Input the date format(2012-02-27): ");
+  String date = stdin.readLineSync() ?? "";
+  return DateTime.tryParse(date).toString();
+}
+
+void markAttendanceOfClass() {
+  SchoolClass schoolClass = requestSchoolClass();
+  String date = askForYON("Do you want to mark the attendance for today?")
+      ? todayAsString()
+      : dateAsString();
+  for (Student student in schoolClass.studentsList) {
+    late String status;
+    do {
+      stdout.write("Input the status for ${student.surName} ${student.name}(p/a/l/e): ");
+      status = stdin.readLineSync() ?? "";
+    } while (!isValidAttendance(status));
+    student.markAttendance(date, status);
   }
 }
 
